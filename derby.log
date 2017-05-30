@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue May 30 17:18:06 GFT 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015c-5b02-2660-0000008d0790 
+Tue May 30 17:35:22 GFT 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015c-5b11-f30e-000000cb8960 
 on database directory C:\curso\projects\LAB-00053-CSD-POIS\MyTestDb with class loader org.springframework.boot.loader.LaunchedURLClassLoader@1469ea2 
 Loaded from jar:file:/C:/curso/projects/LAB-00053-CSD-POIS/target/pois-app.war!/WEB-INF/lib/derby-10.13.1.1.jar!/
 java.vendor=Oracle Corporation
