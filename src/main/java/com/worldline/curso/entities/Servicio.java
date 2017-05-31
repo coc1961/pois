@@ -30,6 +30,8 @@ public class Servicio {
 		this.name = name;
 	}
 
+	public Servicio() {
+	}
 	public Servicio(String name) {
 		super();
 		this.name = name;

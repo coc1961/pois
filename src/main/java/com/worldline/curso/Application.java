@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.worldline.curso.dao.PoiDao;
-import com.worldline.curso.entities.Poi;
+import com.worldline.curso.dao.ServicioDao;
+import com.worldline.curso.entities.Servicio;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -58,8 +59,17 @@ public class Application extends SpringBootServletInitializer {
 	public CommandLineRunner demo(PoiDao repository) {
 		return (args) -> {
 			repository.save(new Poi("Prueba"));
-			repository.findByServiceNameAndMap("Prueba","mapa");
+			
 
+		};
+	}
+
+	@Bean
+	public CommandLineRunner servicioP(ServicioDao repository) {
+		return (args) -> {
+			repository.save(new Servicio("Buenos Aires Turistica"));
+			repository.save(new Servicio("Buenos Aires Historica"));
+			repository.save(new Servicio("Buenos Aires Tango"));
 		};
 	}
 
