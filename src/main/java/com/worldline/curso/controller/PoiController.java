@@ -1,5 +1,7 @@
 package com.worldline.curso.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.worldline.curso.entities.Poi;
 import com.worldline.curso.services.PoiService;
 
 /**
@@ -29,9 +32,13 @@ public class PoiController
     PoiService poiService;
     
     @RequestMapping(value="/findPoiByService/{serviceName}",method = RequestMethod.GET,produces = "application/json")
-    public ResponseEntity<String> findPoiByServices(@PathVariable("serviceName") String serviceName) {
+    public ResponseEntity<List<Poi>> findPoiByServices(@PathVariable("serviceName") String serviceName) {
 
-        return new  ResponseEntity<String>("Ok", HttpStatus.OK);
+    	List<Poi> pois=poiService.findByServiceName(serviceName);
+    	
+        return new  ResponseEntity<List<Poi>>(pois, HttpStatus.OK);
     }
+
+	
 
 }
