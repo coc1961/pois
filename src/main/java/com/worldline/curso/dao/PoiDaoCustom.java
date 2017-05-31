@@ -7,5 +7,6 @@ import com.worldline.curso.entities.Poi;
 public interface PoiDaoCustom {
 	
 	public List<Poi> findByServiceNameAndMap(String serviceName,String map);
+	public List<Poi> findByLatitudLongitud(String laitud,String longitud);
 
 }

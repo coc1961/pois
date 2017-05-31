@@ -25,4 +25,10 @@ public class PoiDaoImpl implements PoiDaoCustom {
 		return null;
 	}
 
+	@Override
+	public List<Poi> findByLatitudLongitud(String laitud, String longitud) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
