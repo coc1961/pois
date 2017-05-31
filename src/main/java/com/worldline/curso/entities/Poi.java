@@ -2,17 +2,17 @@ package com.worldline.curso.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+
+import org.hibernate.annotations.GenericGenerator;
 
 
 @Entity
 public class Poi {
 	
 	@Id
-	@SequenceGenerator(name="my_poi", sequenceName="poi_id_seq")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE ,generator="my_poi")
+	@GenericGenerator(name="myGenerator",strategy="com.worldline.curso.entities.generator.IdGenerator") 
+	@GeneratedValue(generator="myGenerator")
 	private Long id;
 	
 	

@@ -6,12 +6,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 public class Servicio {
 
 	@Id
-	@SequenceGenerator(name="my_poi", sequenceName="poi_id_seq")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE ,generator="my_poi")
+	@GenericGenerator(name="myGenerator1",strategy="com.worldline.curso.entities.generator.IdGenerator") 
+	@GeneratedValue(generator="myGenerator1")
 	private Long id;
 	
 	private String name;
