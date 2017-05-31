@@ -83,42 +83,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
 				</plugin>
-				<!-- <plugin> -->
-				<!-- <groupId>org.codehaus.cargo</groupId> -->
-				<!-- <artifactId>cargo-maven2-plugin</artifactId> -->
-				<!-- <version>1.5.0</version> -->
-				<!-- <configuration> -->
-				<!-- <configuration> -->
-				<!-- <properties> -->
-				<!-- <cargo.servlet.port>${servlet.port}</cargo.servlet.port> -->
-				<!-- </properties> -->
-				<!-- </configuration> -->
-				<!-- <deployables> -->
-				<!-- <deployable> -->
-				<!-- <properties> -->
-				<!-- <context>pois-app</context> -->
-				<!-- </properties> -->
-				<!-- <groupId>csd</groupId> -->
-				<!-- <artifactId>pois</artifactId> -->
-				<!-- <type>war</type> -->
-				<!-- </deployable> -->
-				<!-- </deployables> -->
-				<!-- </configuration> -->
-				<!-- </plugin> -->
-<!-- 				<plugin> -->
-<!-- 					<groupId>org.codehaus.cargo</groupId> -->
-<!-- 					<artifactId>cargo-maven2-plugin</artifactId> -->
-<!-- 					<configuration> -->
-<!-- 						<container> -->
-<!-- 							<containerId>jetty7x</containerId> -->
-<!-- 							<artifactInstaller> -->
-<!-- 								<groupId>org.eclipse.jetty</groupId> -->
-<!-- 								<artifactId>jetty-distribution</artifactId> -->
-<!-- 								<version>7.6.17.v20150415</version> -->
-<!-- 							</artifactInstaller> -->
-<!-- 						</container> -->
-<!-- 					</configuration> -->
-<!-- 				</plugin> -->
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -166,26 +130,6 @@
 					</execution>
 				</executions>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.codehaus.cargo</groupId> -->
-<!-- 				<artifactId>cargo-maven2-plugin</artifactId> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>start-cargo</id> -->
-<!-- 						<phase>pre-integration-test</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>start</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 					<execution> -->
-<!-- 						<id>stop-cargo</id> -->
-<!-- 						<phase>post-integration-test</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>stop</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
 		</plugins>
 	</build>
 </project>
