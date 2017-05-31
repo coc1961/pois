@@ -15,6 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.2.RELEASE</version>
+
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -65,16 +66,126 @@
 			<version>1.2.5</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 
 	<build>
 		<finalName>pois-app</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+				</plugin>
+				<!-- <plugin> -->
+				<!-- <groupId>org.codehaus.cargo</groupId> -->
+				<!-- <artifactId>cargo-maven2-plugin</artifactId> -->
+				<!-- <version>1.5.0</version> -->
+				<!-- <configuration> -->
+				<!-- <configuration> -->
+				<!-- <properties> -->
+				<!-- <cargo.servlet.port>${servlet.port}</cargo.servlet.port> -->
+				<!-- </properties> -->
+				<!-- </configuration> -->
+				<!-- <deployables> -->
+				<!-- <deployable> -->
+				<!-- <properties> -->
+				<!-- <context>pois-app</context> -->
+				<!-- </properties> -->
+				<!-- <groupId>csd</groupId> -->
+				<!-- <artifactId>pois</artifactId> -->
+				<!-- <type>war</type> -->
+				<!-- </deployable> -->
+				<!-- </deployables> -->
+				<!-- </configuration> -->
+				<!-- </plugin> -->
+<!-- 				<plugin> -->
+<!-- 					<groupId>org.codehaus.cargo</groupId> -->
+<!-- 					<artifactId>cargo-maven2-plugin</artifactId> -->
+<!-- 					<configuration> -->
+<!-- 						<container> -->
+<!-- 							<containerId>jetty7x</containerId> -->
+<!-- 							<artifactInstaller> -->
+<!-- 								<groupId>org.eclipse.jetty</groupId> -->
+<!-- 								<artifactId>jetty-distribution</artifactId> -->
+<!-- 								<version>7.6.17.v20150415</version> -->
+<!-- 							</artifactInstaller> -->
+<!-- 						</container> -->
+<!-- 					</configuration> -->
+<!-- 				</plugin> -->
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>pre-integration-test</id>
+						<goals>
+							<goal>start</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-integration-test</id>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>perform-it</id>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+						<configuration>
+							<systemProperties>
+								<property>
+									<name>servlet.port</name>
+									<value>${servlet.port}</value>
+								</property>
+							</systemProperties>
+						</configuration>
+					</execution>
+					<execution>
+						<id>verify-it</id>
+						<goals>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.cargo</groupId> -->
+<!-- 				<artifactId>cargo-maven2-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>start-cargo</id> -->
+<!-- 						<phase>pre-integration-test</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>start</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 					<execution> -->
+<!-- 						<id>stop-cargo</id> -->
+<!-- 						<phase>post-integration-test</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>stop</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 		</plugins>
 	</build>
 </project>

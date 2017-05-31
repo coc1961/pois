@@ -1,8 +1,8 @@
 ----------------------------------------------------------------
-Tue May 30 17:44:17 GFT 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015c-5b1a-1e2d-000000e198d8 
-on database directory C:\curso\projects\LAB-00053-CSD-POIS\MyTestDb with class loader sun.misc.Launcher$AppClassLoader@b4aac2 
-Loaded from file:/C:/Users/a553405/.m2/repository/org/apache/derby/derby/10.13.1.1/derby-10.13.1.1.jar
+Wed May 31 19:47:39 GFT 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015c-60b1-6e09-00002ddeac28 
+on database directory C:\curso\projects\LAB-00053-CSD-POIS\PoiDB with class loader java.net.URLClassLoader@48da18 
+Loaded from file:/c:/Users/a553405/.m2/repository/org/apache/derby/derby/10.13.1.1/derby-10.13.1.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_92-b14
 user.dir=C:\curso\projects\LAB-00053-CSD-POIS

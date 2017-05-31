@@ -5,6 +5,9 @@ import java.util.List;
 public class PoisResponse {
 	private String status="Ok";
 	private List<Poi> pois;
+	
+	public PoisResponse() {
+	}
 	public PoisResponse(String status, List<Poi> pois) {
 		super();
 		this.status = status;
