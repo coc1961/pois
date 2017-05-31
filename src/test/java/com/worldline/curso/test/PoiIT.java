@@ -1,13 +1,8 @@
 package com.worldline.curso.test;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
 
-import com.worldline.curso.Application;
 import com.worldline.curso.entities.PoisResponse;
 
 

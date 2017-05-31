@@ -1,7 +1,6 @@
 package com.worldline.curso.entities.generator;
 
 import java.io.Serializable;
-import java.util.Calendar;
 
 import org.hibernate.HibernateException;
 import org.hibernate.annotations.GenericGenerator;
