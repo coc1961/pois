@@ -10,10 +10,11 @@ import org.hibernate.id.IdentifierGenerator;
 
 @GenericGenerator(name="myGenerator", strategy="increment")
 public class IdGenerator implements IdentifierGenerator {
+	public static long inc=0;
 
 	@Override
 	public Serializable generate(SessionImplementor arg0, Object arg1) throws HibernateException {
-		return Calendar.getInstance().getTimeInMillis();
+		return inc++;
 	}
    
 
