@@ -4,13 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 
 @Entity
 public class Poi {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@SequenceGenerator(name="my_poi", sequenceName="poi_id_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE ,generator="my_poi")
 	private Long id;
 	
 	
@@ -68,6 +70,7 @@ public class Poi {
 		this.longitud = longitud;
 	}
 
+	@SuppressWarnings("unused")
 	private Long getId() {
 		return id;
 	}
