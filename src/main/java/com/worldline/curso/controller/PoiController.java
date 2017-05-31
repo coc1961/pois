@@ -57,7 +57,7 @@ public class PoiController
 	}
 	
 	@RequestMapping(value="/findNearestPoint/{serviceName}",method = RequestMethod.GET,produces = "application/json")
-	public ResponseEntity<PoisResponse> findNearestPoint(@PathVariable("poiName") String serviceName, @PathVariable("latitud") String latitud, @PathVariable("longitud") String longitud) {
+	public ResponseEntity<PoisResponse> findNearestPoint(@PathVariable("serviceName") String serviceName, @PathVariable("latitud") String latitud, @PathVariable("longitud") String longitud) {
 		String status="Ok";
 
 		Poi poi = new Poi();
