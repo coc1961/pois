@@ -23,7 +23,7 @@ public class Poi {
 	}
 
 
-	public Long getId() {
+	private Long getId() {
 		return id;
 	}
 

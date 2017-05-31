@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.worldline.curso.entities.Poi;
+import com.worldline.curso.entities.PoisResponse;
 import com.worldline.curso.services.PoiService;
 
 /**
@@ -32,11 +33,12 @@ public class PoiController
     PoiService poiService;
     
     @RequestMapping(value="/findPoiByService/{serviceName}",method = RequestMethod.GET,produces = "application/json")
-    public ResponseEntity<List<Poi>> findPoiByServices(@PathVariable("serviceName") String serviceName) {
-
+    public ResponseEntity<PoisResponse> findPoiByServices(@PathVariable("serviceName") String serviceName) {
+    	String status="Ok";
+    	
     	List<Poi> pois=poiService.findByServiceName(serviceName);
     	
-        return new  ResponseEntity<List<Poi>>(pois, HttpStatus.OK);
+        return new  ResponseEntity<PoisResponse>(new PoisResponse(status,pois), HttpStatus.OK);
     }
 
 	
