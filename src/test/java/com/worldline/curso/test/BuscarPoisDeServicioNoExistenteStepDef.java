@@ -13,7 +13,7 @@ import cucumber.api.java.es.Entonces;
 public class BuscarPoisDeServicioNoExistenteStepDef {
 
 	private RestTemplate restTemplate=new RestTemplate();
-	private String hostService="http://localhost:8080/v1/poiservice/findPoiByService";
+	private String hostService="http://localhost:8080/pois-app/v1/poiservice/findPoiByService";
 	
 	private String urlWithService;
 
