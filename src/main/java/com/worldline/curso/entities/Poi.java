@@ -63,6 +63,11 @@ public class Poi {
 		this.descripcion = descripcion;
 	}
 
+	public Poi(String latitud, String longitud) {
+		this.latitud = latitud;
+		this.longitud = longitud;
+	}
+
 	private Long getId() {
 		return id;
 	}

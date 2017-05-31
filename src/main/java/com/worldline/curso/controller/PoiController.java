@@ -45,6 +45,7 @@ public class PoiController
 		List<Poi> pois=new ArrayList<>();
 
 		List<Servicio> servico=servicioDao.findByName(serviceName);
+		
 		if (servico.size()==0){
 			status = "El Servicio Solicitado No Existe";
 		}
@@ -54,6 +55,30 @@ public class PoiController
 
 		return new  ResponseEntity<PoisResponse>(new PoisResponse(status,pois), HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/findNearestPoint/{serviceName}",method = RequestMethod.GET,produces = "application/json")
+	public ResponseEntity<PoisResponse> findNearestPoint(@PathVariable("poiName") String serviceName, @PathVariable("latitud") String latitud, @PathVariable("longitud") String longitud) {
+		String status="Ok";
+
+		Poi poi = new Poi();
+
+		List<Servicio> servico=servicioDao.findByName(serviceName);
+		
+		if (servico.size()==0){
+			status = "El Servicio Solicitado No Existe";
+		}
+		
+		else {
+			poi = poiService.findNearestPoi(latitud, longitud);
+
+			if (poi == null){
+				status = "No existen puntos cercanos";
+			}
+		}
+
+		return new  ResponseEntity<PoisResponse>(new PoisResponse(status,poi), HttpStatus.OK);
+	}
+
 
 
 
