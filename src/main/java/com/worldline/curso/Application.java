@@ -58,7 +58,7 @@ public class Application extends SpringBootServletInitializer {
 	@Bean
 	public CommandLineRunner demo(PoiDao repository) {
 		return (args) -> {
-			repository.save(new Poi("Prueba"));
+			//repository.save(new Poi("Prueba"));
 			
 
 		};
