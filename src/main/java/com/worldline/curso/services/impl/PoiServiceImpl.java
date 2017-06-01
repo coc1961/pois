@@ -40,7 +40,7 @@ public class PoiServiceImpl implements PoiService {
 
 		Poi poiMasCercano = null; 
         double distancia = 0; 
-        double distanciaMasCercana = 99999999f; 
+        double distanciaMasCercana = 9999999999f; 
         
         for (Poi poiToValidate : pois) {
           distancia = obtenerDistancia(poiReferencia, poiToValidate); 
@@ -68,13 +68,17 @@ public class PoiServiceImpl implements PoiService {
 	private double obtenerDistancia(Poi poiReferencia, Poi poiToValidate) {
 		
 		double latReferencia = Double.parseDouble(poiReferencia.getLatitud());
-		double latToValidate = Double.parseDouble(poiToValidate.getLatitud());
 		double lonReferencia = Double.parseDouble(poiReferencia.getLongitud());
+
+		double latToValidate = Double.parseDouble(poiToValidate.getLatitud());
 		double lonToValidate = Double.parseDouble(poiToValidate.getLongitud());
 
-		double difLatitud  = Math.pow((latToValidate - latReferencia), 2);
-		double difLongitud = Math.pow((lonToValidate - lonReferencia), 2);
+//		double difLatitud  = Math.pow((latToValidate - latReferencia), 2);
+//		double difLongitud = Math.pow((lonToValidate - lonReferencia), 2);
 		
+		double difLatitud  = Math.pow((latReferencia - latToValidate), 2);
+		double difLongitud = Math.pow((lonReferencia - lonToValidate), 2);
+
 		return Math.sqrt(difLatitud + difLongitud);
 		
 	}
