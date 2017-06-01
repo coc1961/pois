@@ -8,8 +8,8 @@ public interface PoiService {
 	
 	List<Poi> findByServiceName(String serviceName);
 	
-	Poi findNearestPoi(String latitud, String longitud);
+	Poi findNearestPoi(String latitud, String longitud, List<Poi> pois);
 
-	List<Poi> findPoisWithinRadius(String latitud, String longitud, int radio);
+	List<Poi> findPoisWithinRadius(String latitud, String longitud, int radio, List<Poi> pois);
 
 }

@@ -69,7 +69,8 @@ public class PoiController
 		}
 		
 		else {
-			poi = poiService.findNearestPoi(latitud, longitud);
+			List<Poi> pois = poiService.findByServiceName(serviceName);
+			poi = poiService.findNearestPoi(latitud, longitud, pois);
 
 			if (poi == null){
 				status = "No existen puntos cercanos";
@@ -84,8 +85,7 @@ public class PoiController
 	public ResponseEntity<PoisResponse> findPoisWithinRadius(@PathVariable("serviceName") String serviceName, @PathVariable("latitud") String latitud, @PathVariable("longitud") String longitud, @PathVariable("radio") Integer radio) {
 		String status="Ok";
 
-		Poi poi = new Poi();
-		List<Poi> pois = new ArrayList<>();
+		List<Poi> poisResult = new ArrayList<>();
 
 		List<Servicio> servico=servicioDao.findByName(serviceName);
 		
@@ -94,14 +94,15 @@ public class PoiController
 		}
 		
 		else {
-			pois = poiService.findPoisWithinRadius(latitud, longitud, radio);
+			List<Poi> pois = poiService.findByServiceName(serviceName);
+			poisResult = poiService.findPoisWithinRadius(latitud, longitud, radio, pois);
 
 			if (pois == null){
 				status = "No existen puntos en el radio especificado";
 			}
 		}
 
-		return new  ResponseEntity<PoisResponse>(new PoisResponse(status,pois), HttpStatus.OK);
+		return new  ResponseEntity<PoisResponse>(new PoisResponse(status,poisResult), HttpStatus.OK);
 	}
 
 

@@ -22,20 +22,16 @@ public class PoiServiceImpl implements PoiService {
 	}
 
 	@Override
-	public Poi findNearestPoi(String latitud, String longitud) {
+	public Poi findNearestPoi(String latitud, String longitud, List<Poi> pois) {
 		
 		Poi poi = new Poi(latitud, longitud);
-		List<Poi> pois = (List<Poi>) dao.findAll();
-		
 		return getNearestPoint(poi, pois); 
 	}
 	
 	@Override
-	public List<Poi> findPoisWithinRadius(String latitud, String longitud, int radio) {
+	public List<Poi> findPoisWithinRadius(String latitud, String longitud, int radio, List<Poi> pois) {
 		
 		Poi poi = new Poi(latitud, longitud);
-		List<Poi> pois = (List<Poi>) dao.findAll();
-		
 		return getPoisWithinRadius(poi, pois, radio); 
 	}
 
