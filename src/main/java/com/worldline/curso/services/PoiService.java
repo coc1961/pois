@@ -10,4 +10,6 @@ public interface PoiService {
 	
 	Poi findNearestPoi(String latitud, String longitud);
 
+	List<Poi> findPoisWithinRadius(String latitud, String longitud, int radio);
+
 }

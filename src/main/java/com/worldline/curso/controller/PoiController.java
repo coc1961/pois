@@ -80,6 +80,29 @@ public class PoiController
 	}
 
 
+	@RequestMapping(value="/findPoisWithinRadius/{serviceName}/{latitud}/{longitud}/{radio}",method = RequestMethod.GET,produces = "application/json")
+	public ResponseEntity<PoisResponse> findPoisWithinRadius(@PathVariable("serviceName") String serviceName, @PathVariable("latitud") String latitud, @PathVariable("longitud") String longitud, @PathVariable("radio") Integer radio) {
+		String status="Ok";
+
+		Poi poi = new Poi();
+		List<Poi> pois = new ArrayList<>();
+
+		List<Servicio> servico=servicioDao.findByName(serviceName);
+		
+		if (servico.size()==0){
+			status = "El Servicio Solicitado No Existe";
+		}
+		
+		else {
+			pois = poiService.findPoisWithinRadius(latitud, longitud, radio);
+
+			if (pois == null){
+				status = "No existen puntos en el radio especificado";
+			}
+		}
+
+		return new  ResponseEntity<PoisResponse>(new PoisResponse(status,pois), HttpStatus.OK);
+	}
 
 
 }
